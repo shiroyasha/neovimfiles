@@ -1,37 +1,67 @@
-call plug#begin('~/.config/nvim/plugged')
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'danchoi/ri.vim'
-Plug 'danro/rename.vim'
-Plug 'godlygeek/tabular'
-Plug 'isRuslan/vim-es6'
-Plug 'janko-m/vim-test'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'kana/vim-textobj-user'
-Plug 'kien/ctrlp.vim'
-Plug 'mileszs/ack.vim'
-Plug 'morhetz/gruvbox'
-Plug 'nelstrom/vim-textobj-rubyblock'
-Plug 'neomake/neomake'
-Plug 'rainerborene/vim-reek'
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Required:
+set runtimepath+=/home/vagrant/.cache/dein/repos/github.com/Shougo/dein.vim
 
-call plug#end()
+" Required:
+if dein#load_state('/home/vagrant/.cache/dein')
+  call dein#begin('/home/vagrant/.cache/dein')
+
+  " Let dein manage dein
+  " Required:
+  call dein#add('/home/vagrant/.cache/dein/repos/github.com/Shougo/dein.vim')
+
+  " Add or remove your plugins here:
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
+
+  call dein#add('Shougo/unite.vim')
+  call dein#add('Shougo/vimfiler.vim')
+  call dein#add('AndrewRadev/splitjoin.vim')
+  call dein#add('danchoi/ri.vim')
+  call dein#add('danro/rename.vim')
+  call dein#add('godlygeek/tabular')
+  call dein#add('isRuslan/vim-es6')
+  call dein#add('janko-m/vim-test')
+  call dein#add('kana/vim-textobj-user')
+  call dein#add('kien/ctrlp.vim')
+  call dein#add('rking/ag.vim')
+  call dein#add('nelstrom/vim-textobj-rubyblock')
+  call dein#add('neomake/neomake')
+  call dein#add('rainerborene/vim-reek')
+  call dein#add('sheerun/vim-polyglot')
+  call dein#add('tpope/vim-commentary')
+  call dein#add('tpope/vim-endwise')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('tpope/vim-rails')
+  call dein#add('tpope/vim-repeat')
+  call dein#add('tpope/vim-surround')
+  call dein#add('vim-airline/vim-airline')
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+"endif
+
+"End dein Scripts-------------------------
 
 runtime macros/matchit.vim          " Enables % to cycle through `if/else/endif`, recognizing Ruby blocks, etc.
 
 set number
 set ruler                              " Show the cursor position all the time
 set colorcolumn=80                     " Show vertical bar at column 80
-set cursorline                         " Highlight the line of the cursor
 set showcmd                            " Show partial commands below the status line
 set shell=bash                         " Avoids munging PATH under zsh
 let g:is_bash=1                        " Default shell syntax
@@ -62,9 +92,6 @@ function s:setupWrappingAndSpellcheck()
   set spell
 endfunction
 
-" Toggle relative numbers
-nnoremap <C-n> :let &rnu=!&rnu<CR>
-
 if has("autocmd")
   " Delete empty space from the end of lines on every save
   au BufWritePre * :%s/\s\+$//e
@@ -78,11 +105,6 @@ if has("autocmd")
 
   " Treat JSON files like JavaScript
   au BufNewFile,BufRead *.json set ft=javascript
-
-  " Remember last location in file, but not for commit messages.
-  " see :help last-position-jump
-  au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g`\"" | endif
 
   " Encrypted Yaml
   au BufRead,BufNewFile *.{yml.enc} setlocal filetype=yaml
@@ -106,6 +128,8 @@ nmap <leader>P PV`]=
 
 inoremap jj <Esc>
 
+let g:vimfiler_as_default_explorer = 1
+
 map <leader>ga :CtrlP app<cr>
 map <leader>gv :CtrlP app/views<cr>
 map <leader>gc :CtrlP app/controllers<cr>
@@ -117,12 +141,18 @@ map <leader>gs :CtrlP spec<cr>
 map <leader>gt :CtrlP test<cr>
 map <leader>gl :CtrlP lib<cr>
 map <leader>f :CtrlP ./<cr>
-map <leader>b :CtrlPBuffer<cr>
+map <leader>b :CtrlPBuffer ./<cr>
+map <leader>e :VimFilerBufferDir -toggle <cr>
 map <leader>gd :e db/schema.rb<cr>
 map <leader>gr :e config/routes.rb<cr>
 map <leader>gg :e Gemfile<cr>
-map <leader>s :A<CR>
-map <leader>v :AV<CR>
+map <leader><leader> :A<CR>
+map <leader>s :split<CR>
+map <leader>v :vsplit<CR>
+
+let g:ag_prg="ag --nocolor --nogroup --column"
+nmap <leader>a :Ag! ""<Left>
+nmap <leader>A :Ag! <C-r><C-w>
 
 " vim-test
 nmap <silent> <leader>t :TestNearest<CR>
@@ -148,18 +178,12 @@ noremap <silent> <C-S>  :update<CR>
 vnoremap <silent> <C-S> <C-C>:update<CR>
 inoremap <silent> <C-S> <C-O>:update<CR>
 
-" Ack
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-nmap <leader>a :Ack ""<Left>
-nmap <leader>A :Ack <C-r><C-w>
-
 " Airline
 let g:airline_left_sep=""
 let g:airline_right_sep=""
 let g:airline_section_x=""
 let g:airline_section_y=""
 let g:airline_section_z="%l/%L %-3.c"
-let g:airline_theme="gruvbox"
 
 " Reek
 let g:reek_on_loading = 0
@@ -175,16 +199,15 @@ tnoremap <C-j> <C-\><C-N><C-w>j
 tnoremap <C-k> <C-\><C-N><C-w>k
 tnoremap <C-l> <C-\><C-N><C-w>l
 
-" I like relative numbering when in normal mode.
-autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
-
 " Prefer Neovim terminal insert mode to normal mode.
 autocmd BufEnter term://* startinsert
 
 " Ruby on Rails
 let g:rubycomplete_rails = 1
 
-" Color scheme
-let g:gruvbox_contrast_dark="soft"
 set background=dark
-colorscheme gruvbox
+highlight ColorColumn ctermbg=234
+
+if has('nvim')
+  tmap <C-o> <C-\><C-n>
+end
