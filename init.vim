@@ -34,6 +34,9 @@ set number
 set ruler                              " Show the cursor position all the time
 set colorcolumn=80                     " Show vertical bar at column 80
 set showcmd                            " Show partial commands below the status line
+set wrap                               " wrap lines
+set linebreak                          " Maintains the whole words when wrapping
+set lazyredraw                         " The screen won't be redrawn unless actions took place
 set shell=bash                         " Avoids munging PATH under zsh
 let g:is_bash=1                        " Default shell syntax
 set scrolloff=3                        " Have some context around the current line always
@@ -46,6 +49,7 @@ set backupdir=~/.config/nvim/_backup   " where to put backup files
 set directory=~/.config/nvim/_temp     " where to put swap files
 set inccommand=nosplit                 " incremental substitute
 
+
 " Whitespace
 set nowrap                        " don't wrap lines
 set tabstop=2                     " a tab is two spaces
@@ -57,7 +61,6 @@ set ignorecase                    " searches are case insensitive...
 set smartcase                     " ... unless they contain at least one capital letter
 
 function s:setupWrappingAndSpellcheck()
-  set wrap
   set wrapmargin=2
   set textwidth=80
   set spell
@@ -143,6 +146,12 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+" disable cursor keys in normal mode
+map <Left>  :echo "no! use h!"<cr>
+map <Down>  :echo "no! use j!"<cr>
+map <Up>    :echo "no! use k!"<cr>
+map <Right> :echo "no! use l!"<cr>
 
 " map Ctrl+S to :w
 noremap <silent> <C-S>  :update<CR>
