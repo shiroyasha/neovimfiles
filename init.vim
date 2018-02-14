@@ -1,8 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " Add or remove your plugins here:
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'AndrewRadev/splitjoin.vim'
@@ -25,40 +23,43 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
+Plug 'thisivan/vim-bufexplorer'
 
 call plug#end()
 
-runtime macros/matchit.vim          " Enables % to cycle through `if/else/endif`, recognizing Ruby blocks, etc.
+runtime macros/matchit.vim               " Enables % to cycle through `if/else/endif`, recognizing Ruby blocks, etc.
+
+let g:vimfiler_safe_mode_by_default = 0  " disable safe mode for VimFiler
 
 set number
-set ruler                              " Show the cursor position all the time
-set colorcolumn=80                     " Show vertical bar at column 80
-set showcmd                            " Show partial commands below the status line
-set wrap                               " wrap lines
-set linebreak                          " Maintains the whole words when wrapping
-set lazyredraw                         " The screen won't be redrawn unless actions took place
-set shell=bash                         " Avoids munging PATH under zsh
-let g:is_bash=1                        " Default shell syntax
-set scrolloff=3                        " Have some context around the current line always
-                                       " on screen
-set noerrorbells visualbell t_vb=      " Disable bell
-set hidden                             " Allow backgrounding buffers without writing
-                                       " them, and remember marks/undo for backgrounded
-                                       " buffers
-set backupdir=~/.config/nvim/_backup   " where to put backup files
-set directory=~/.config/nvim/_temp     " where to put swap files
-set inccommand=nosplit                 " incremental substitute
+set ruler                                " Show the cursor position all the time
+set colorcolumn=80                       " Show vertical bar at column 80
+set showcmd                              " Show partial commands below the status line
+set wrap                                 " wrap lines
+set linebreak                            " Maintains the whole words when wrapping
+set lazyredraw                           " The screen won't be redrawn unless actions took place
+set shell=bash                           " Avoids munging PATH under zsh
+let g:is_bash=1                          " Default shell syntax
+set scrolloff=3                          " Have some context around the current line always
+                                         " on screen
+set noerrorbells visualbell t_vb=        " Disable bell
+set hidden                               " Allow backgrounding buffers without writing
+                                         " them, and remember marks/undo for backgrounded
+                                         " buffers
+set backupdir=~/.config/nvim/_backup     " where to put backup files
+set directory=~/.config/nvim/_temp       " where to put swap files
+set inccommand=nosplit                   " incremental substitute
 
 
 " Whitespace
-set nowrap                        " don't wrap lines
-set tabstop=2                     " a tab is two spaces
-set shiftwidth=2                  " an autoindent (with <<) is two spaces
-set expandtab                     " use spaces, not tabs
+set nowrap                               " don't wrap lines
+set tabstop=2                            " a tab is two spaces
+set shiftwidth=2                         " an autoindent (with <<) is two spaces
+set expandtab                            " use spaces, not tabs
 
 " Searching
-set ignorecase                    " searches are case insensitive...
-set smartcase                     " ... unless they contain at least one capital letter
+set ignorecase                           " searches are case insensitive...
+set smartcase                            " ... unless they contain at least one capital letter
 
 function s:setupWrappingAndSpellcheck()
   set wrapmargin=2
@@ -115,7 +116,7 @@ map <leader>gs :CtrlP spec<cr>
 map <leader>gt :CtrlP test<cr>
 map <leader>gl :CtrlP lib<cr>
 map <leader>f :CtrlP ./<cr>
-map <leader>b :CtrlPBuffer ./<cr>
+map <leader>l :BufExplorer <cr>
 map <leader>e :VimFilerBufferDir -toggle <cr>
 map <leader>gd :e db/schema.rb<cr>
 map <leader>gr :e config/routes.rb<cr>
@@ -131,15 +132,12 @@ nmap <leader>A :Ag! <C-r><C-w>
 " vim-test
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
-nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 let test#strategy="neovim"
 
 set wildignore+=tmp/**
 set wildignore+=*/vendor/*
 set wildignore+=*/plugged/*
-
-nnoremap <leader><leader> <c-^>
 
 " easier navigation between split windows
 nnoremap <c-j> <c-w>j
