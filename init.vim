@@ -24,6 +24,10 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'thisivan/vim-bufexplorer'
+Plug 'tpope/vim-dispatch'
+Plug 'elixir-editors/vim-elixir'
+Plug 'renderedtext/vim-elixir-alternative-files'
+Plug 'fatih/vim-go'
 
 call plug#end()
 
@@ -135,6 +139,8 @@ nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 let test#strategy="neovim"
 
+nnoremap <silent><leader><leader> :call ElixirAlternateFile()<cr>
+
 set wildignore+=tmp/**
 set wildignore+=*/vendor/*
 set wildignore+=*/plugged/*
@@ -189,3 +195,24 @@ highlight ColorColumn ctermbg=234
 if has('nvim')
   tmap <C-o> <C-\><C-n>
 end
+
+"
+" Golang setup, based on https://hackernoon.com/my-neovim-setup-for-go-7f7b6e805876
+"
+au FileType go set noexpandtab
+au FileType go set shiftwidth=4
+au FileType go set softtabstop=4
+au FileType go set tabstop=4
+
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_auto_sameids = 1
+let g:go_fmt_command = "goimports"
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
