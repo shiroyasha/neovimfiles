@@ -139,6 +139,26 @@ nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 let test#strategy="neovim"
 
+let test#ruby#rspec#executable = './script/rspec'
+
+function! DockerTransform(cmd) abort
+  " Idea (but doesn't work)
+  "
+  " check if docker-compose is up
+  "   if yes => run docker exec app ...
+  "   else   => start service => run docker exec app ...
+  "
+  let newcmd='[[ $(docker-compose ps -q app | head -1) == "" ]] && docker-compose run --rm -d app sleep infinity; docker exec -t $(docker-compose ps -q app | head -1) '.a:cmd
+
+  " " Simple idea
+  " let newcmd='docker-compose run --rm app '.a:cmd
+
+  return newcmd
+endfunction
+
+let g:test#custom_transformations = {'docker': function('DockerTransform')}
+let g:test#transformation = 'docker'
+
 nnoremap <silent><leader><leader> :call ElixirAlternateFile()<cr>
 
 set wildignore+=tmp/**
