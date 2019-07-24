@@ -8,7 +8,7 @@ Plug 'danchoi/ri.vim'
 Plug 'danro/rename.vim'
 Plug 'godlygeek/tabular'
 Plug 'isRuslan/vim-es6'
-Plug 'janko-m/vim-test'
+Plug 'shiroyasha/make-test'
 Plug 'kana/vim-textobj-user'
 Plug 'kien/ctrlp.vim'
 Plug 'rking/ag.vim'
@@ -133,11 +133,9 @@ let g:ag_prg="ag --nocolor --nogroup --column"
 nmap <leader>a :Ag! ""<Left>
 nmap <leader>A :Ag! <C-r><C-w>
 
-" vim-test
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
-nmap <silent> <leader>g :TestVisit<CR>
-let test#strategy="neovim"
+" make-test
+nmap <silent> <leader>t :MakeTestFileLine<CR>
+nmap <silent> <leader>T :MakeTestFile<CR>
 
 let test#ruby#rspec#executable = './script/rspec'
 
