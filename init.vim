@@ -35,6 +35,8 @@ runtime macros/matchit.vim               " Enables % to cycle through `if/else/e
 
 let g:vimfiler_safe_mode_by_default = 0  " disable safe mode for VimFiler
 
+set noswapfile
+
 set number
 set ruler                                " Show the cursor position all the time
 set colorcolumn=80                       " Show vertical bar at column 80
