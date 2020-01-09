@@ -28,10 +28,14 @@ Plug 'tpope/vim-dispatch'
 Plug 'elixir-editors/vim-elixir'
 Plug 'renderedtext/vim-elixir-alternative-files'
 Plug 'fatih/vim-go'
+Plug 'shiroyasha/make-test'
+Plug 'mhinz/vim-mix-format'
 
 call plug#end()
 
 runtime macros/matchit.vim               " Enables % to cycle through `if/else/endif`, recognizing Ruby blocks, etc.
+
+let g:mix_format_on_save = 1
 
 let g:vimfiler_safe_mode_by_default = 0  " disable safe mode for VimFiler
 
@@ -43,7 +47,6 @@ set colorcolumn=80                       " Show vertical bar at column 80
 set showcmd                              " Show partial commands below the status line
 set wrap                                 " wrap lines
 set linebreak                            " Maintains the whole words when wrapping
-set lazyredraw                           " The screen won't be redrawn unless actions took place
 set shell=bash                           " Avoids munging PATH under zsh
 let g:is_bash=1                          " Default shell syntax
 set scrolloff=3                          " Have some context around the current line always
@@ -135,29 +138,8 @@ let g:ag_prg="ag --nocolor --nogroup --column"
 nmap <leader>a :Ag! ""<Left>
 nmap <leader>A :Ag! <C-r><C-w>
 
-" make-test
 nmap <silent> <leader>t :MakeTestFileLine<CR>
 nmap <silent> <leader>T :MakeTestFile<CR>
-
-let test#ruby#rspec#executable = './script/rspec'
-
-function! DockerTransform(cmd) abort
-  " Idea (but doesn't work)
-  "
-  " check if docker-compose is up
-  "   if yes => run docker exec app ...
-  "   else   => start service => run docker exec app ...
-  "
-  let newcmd='[[ $(docker-compose ps -q app | head -1) == "" ]] && docker-compose run --rm -d app sleep infinity; docker exec -t $(docker-compose ps -q app | head -1) '.a:cmd
-
-  " " Simple idea
-  " let newcmd='docker-compose run --rm app '.a:cmd
-
-  return newcmd
-endfunction
-
-let g:test#custom_transformations = {'docker': function('DockerTransform')}
-let g:test#transformation = 'docker'
 
 nnoremap <silent><leader><leader> :call ElixirAlternateFile()<cr>
 
