@@ -31,6 +31,8 @@ Plug 'fatih/vim-go'
 Plug 'shiroyasha/make-test'
 Plug 'mhinz/vim-mix-format'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 call plug#end()
 
 runtime macros/matchit.vim               " Enables % to cycle through `if/else/endif`, recognizing Ruby blocks, etc.
