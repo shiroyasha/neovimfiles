@@ -71,3 +71,5 @@ km.set(
 	[[ <Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
 	{ noremap = true, silent = true, expr = false }
 )
+
+km.set("n", "<leader>so", ":SymbolsOutline<CR>")

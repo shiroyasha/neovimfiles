@@ -74,4 +74,6 @@ Plug("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
 Plug("ThePrimeagen/refactoring.nvim")
 
+Plug("simrat39/symbols-outline.nvim")
+
 vim.call("plug#end")
