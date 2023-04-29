@@ -13,6 +13,9 @@ Plug('szw/vim-maximizer')
 
 Plug('nvim-tree/nvim-tree.lua')
 Plug('nvim-tree/nvim-web-devicons')
+Plug('nvim-lualine/lualine.nvim')
+
+Plug("nvim-telescope/telescope.nvim", {branch = "0.1.x" })
 
 -- Plug 'Shougo/unite.vim'
 -- Plug 'Shougo/vimfiler.vim'
