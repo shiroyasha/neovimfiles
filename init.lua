@@ -9,6 +9,7 @@ require("shiroyasha.plugins.nvim-lualine")
 require("shiroyasha.plugins.telescope")
 require("shiroyasha.plugins.nvim-cmp")
 require("shiroyasha.plugins.treesitter")
+require("shiroyasha.plugins.refactoring")
 
 require("shiroyasha.plugins.lsp.mason")
 require("shiroyasha.plugins.lsp.lspsaga")
