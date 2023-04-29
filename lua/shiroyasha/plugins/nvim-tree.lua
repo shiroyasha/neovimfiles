@@ -8,6 +8,9 @@ vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
 nvimtree.setup({
+	update_focused_file = {
+		enable = true,
+	},
 	actions = {
 		open_file = {
 			window_picker = {
