@@ -24,6 +24,9 @@ km.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under
 km.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 km.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 
+km.set("n", "<leader>t", ":MakeTestFileLine<CR>") -- run test on current line
+km.set("n", "<leader>T", ":MakeTestFile<CR>") -- run test on current file
+
 -- Remaps for the refactoring operations currently offered by the plugin
 km.set(
 	"v",
