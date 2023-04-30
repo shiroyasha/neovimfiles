@@ -76,4 +76,6 @@ Plug("ThePrimeagen/refactoring.nvim")
 
 Plug("simrat39/symbols-outline.nvim")
 
+Plug("mrjones2014/nvim-ts-rainbow")
+
 vim.call("plug#end")
