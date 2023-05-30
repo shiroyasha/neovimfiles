@@ -10,12 +10,6 @@ km.set("n", "<leader>se", "<C-w>=") -- make split windows equal width
 km.set("n", "<leader>sx", ":close<CR>") -- close current split
 km.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- maximizes current toggle
 
-km.set("n", "<leader>tt", ":tabnew<CR>") -- open new tab
-km.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
-km.set("n", "<leader>tn", ":tabn<CR>") -- next tab
-km.set("n", "<leader>tp", ":tabp<CR>") -- prev tab
-km.set("n", "<leader>tp", ":tabp<CR>") -- prev tab
-
 km.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle nvim tree
 
 km.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
@@ -26,6 +20,8 @@ km.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help
 
 km.set("n", "<leader>t", ":MakeTestFileLine<CR>") -- run test on current line
 km.set("n", "<leader>T", ":MakeTestFile<CR>") -- run test on current file
+
+km.set("n", "<leader>so", ":SymbolsOutline<CR>")
 
 -- Remaps for the refactoring operations currently offered by the plugin
 km.set(
@@ -74,5 +70,3 @@ km.set(
 	[[ <Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
 	{ noremap = true, silent = true, expr = false }
 )
-
-km.set("n", "<leader>so", ":SymbolsOutline<CR>")
