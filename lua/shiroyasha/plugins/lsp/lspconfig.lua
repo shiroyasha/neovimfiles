@@ -111,7 +111,7 @@ lspconfig["lua_ls"].setup({
 })
 
 lspconfig["elixirls"].setup({
-	cmd = { "/home/dev/elixir-ls/language_server.sh" },
+	cmd = { "/home/dev/.elixir-ls/release/language_server.sh" },
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
