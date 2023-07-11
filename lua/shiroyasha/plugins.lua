@@ -6,6 +6,7 @@ Plug("nvim-lua/plenary.nvim")
 
 Plug("tpope/vim-commentary")
 Plug("tpope/vim-surround")
+Plug("tpope/vim-projectionist")
 
 Plug("bluz71/vim-nightfly-colors", { as = "nightfly" })
 Plug("christoomey/vim-tmux-navigator")
