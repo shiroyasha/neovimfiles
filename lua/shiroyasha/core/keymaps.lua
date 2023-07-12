@@ -20,3 +20,5 @@ km.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
 km.set("n", "gf", "<cmd>Lspsaga goto_definition<CR>")
 
 km.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
+
+km.set("n", "<leader>e", NvimOpen, { desc = "nvim-tree: Open" })

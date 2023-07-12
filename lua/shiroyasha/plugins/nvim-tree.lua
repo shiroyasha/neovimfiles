@@ -58,9 +58,29 @@ nvimtree.setup({
 
 		api.config.mappings.default_on_attach(bufnr)
 
-		vim.keymap.set("n", "l", edit_or_open, opts("Edit Or Open"))
-		vim.keymap.set("n", "L", vsplit_preview, opts("Vsplit Preview"))
-		vim.keymap.set("n", "h", api.tree.close, opts("Close"))
+		vim.keymap.set("n", "l", api.node.open.replace_tree_buffer, opts("Edit Or Open"))
+		vim.keymap.set("n", "h", api.tree.change_root_to_parent, opts("Change Root To Parent"))
 		vim.keymap.set("n", "H", api.tree.collapse_all, opts("Collapse All"))
 	end,
 })
+
+function NvimOpen()
+	local core = require("nvim-tree.core")
+	local view = require("nvim-tree.view")
+
+	local cwd = vim.fn.getcwd()
+	local current_buffer = vim.api.nvim_get_current_buf()
+	local buffer_name = vim.api.nvim_buf_get_name(current_buffer)
+	local is_no_name_buffer = buffer_name == ""
+
+	if is_no_name_buffer then
+		core.init(cwd)
+		view.open_in_win({
+			hijack_current_buf = false,
+			resize = false,
+		})
+		require("nvim-tree.renderer").draw()
+	else
+		require("nvim-tree").open_replacing_current_buffer()
+	end
+end

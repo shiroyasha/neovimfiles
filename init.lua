@@ -1,7 +1,6 @@
 require("shiroyasha.plugins")
 
 require("shiroyasha.core.options")
-require("shiroyasha.core.keymaps")
 require("shiroyasha.core.colorscheme")
 
 require("shiroyasha.plugins.nvim-tree")
@@ -20,3 +19,5 @@ require("shiroyasha.plugins.autopairs")
 require("shiroyasha.plugins.treesitter")
 require("shiroyasha.plugins.gitsigns")
 require("shiroyasha.plugins.outline")
+
+require("shiroyasha.core.keymaps")
