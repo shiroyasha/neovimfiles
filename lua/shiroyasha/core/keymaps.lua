@@ -50,4 +50,4 @@ local function camelCase()
 end
 
 km.set("n", "<leader>cc", camelCase, { desc = "camelCase" })
-km.set("n", "<leader>sc", snakeCase, { desc = "snake_case" })
+km.set("n", "<leader>cs", snakeCase, { desc = "snake_case" })
