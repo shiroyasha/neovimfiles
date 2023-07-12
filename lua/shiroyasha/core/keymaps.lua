@@ -22,3 +22,32 @@ km.set("n", "gf", "<cmd>Lspsaga goto_definition<CR>")
 km.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
 
 km.set("n", "<leader>e", NvimOpen, { desc = "nvim-tree: Open" })
+
+-- Case Change
+
+local function snakeCase()
+	local word = vim.fn.expand("<cword>")
+	local converted = word:gsub("([a-z])([A-Z])", "%1_%2"):lower()
+
+	-- diw deletes the current word
+	-- i insert
+	-- and the camel_case_word
+
+	vim.cmd("normal! diwi" .. converted)
+end
+
+local function camelCase()
+	local word = vim.fn.expand("<cword>")
+	local converted = word:gsub("(_)([a-z])", function(_, l)
+		return l:upper()
+	end)
+
+	-- diw deletes the current word
+	-- i insert
+	-- and the camel_case_word
+
+	vim.cmd("normal! diwi" .. converted)
+end
+
+km.set("n", "<leader>cc", camelCase, { desc = "camelCase" })
+km.set("n", "<leader>sc", snakeCase, { desc = "snake_case" })
