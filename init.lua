@@ -11,7 +11,6 @@ require("shiroyasha.plugins.treesitter")
 require("shiroyasha.plugins.refactoring")
 
 require("shiroyasha.plugins.lsp.mason")
-require("shiroyasha.plugins.lsp.lspsaga")
 require("shiroyasha.plugins.lsp.lspconfig")
 require("shiroyasha.plugins.lsp.null-ls")
 

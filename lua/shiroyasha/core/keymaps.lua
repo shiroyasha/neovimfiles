@@ -15,9 +15,6 @@ km.set("n", "<leader>b", "<cmd>Telescope buffers<cr>") -- list open buffers in c
 km.set("n", "<leader>t", ":MakeTestFileLine<CR>") -- run test on current line
 km.set("n", "<leader>T", ":MakeTestFile<CR>") -- run test on current file
 
-km.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
-km.set("n", "gf", "<cmd>Lspsaga goto_definition<CR>")
-
 km.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
 
 km.set("n", "<leader>e", NvimOpen, { desc = "nvim-tree: Open" })

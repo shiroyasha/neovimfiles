@@ -43,13 +43,6 @@ Plug("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
 -- configuring lsp servers
 Plug("neovim/nvim-lspconfig") -- easily configure language servers
 Plug("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-Plug("glepnir/lspsaga.nvim", {
-	branch = "main",
-	requires = {
-		{ "nvim-tree/nvim-web-devicons" },
-		{ "nvim-treesitter/nvim-treesitter" },
-	},
-}) -- enhanced lsp uis
 
 Plug("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 Plug("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
