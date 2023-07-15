@@ -22,36 +22,6 @@ nvimtree.setup({
 	on_attach = function(bufnr)
 		local api = require("nvim-tree.api")
 
-		local function edit_or_open()
-			local node = api.tree.get_node_under_cursor()
-
-			if node.nodes ~= nil then
-				-- expand or collapse folder
-				api.node.open.edit()
-			else
-				-- open file
-				api.node.open.edit()
-				-- Close the tree if file was opened
-				api.tree.close()
-			end
-		end
-
-		-- open as vsplit on current node
-		local function vsplit_preview()
-			local node = api.tree.get_node_under_cursor()
-
-			if node.nodes ~= nil then
-				-- expand or collapse folder
-				api.node.open.edit()
-			else
-				-- open file as vsplit
-				api.node.open.vertical()
-			end
-
-			-- Finally refocus on tree if it was lost
-			api.tree.focus()
-		end
-
 		local function opts(desc)
 			return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 		end
@@ -63,6 +33,12 @@ nvimtree.setup({
 		vim.keymap.set("n", "H", api.tree.collapse_all, opts("Collapse All"))
 	end,
 })
+
+-- NOTE: disable fixed nvim-tree width and height
+-- to allow creating splits naturally
+local winopts = require("nvim-tree.view").View.winopts
+winopts.winfixwidth = false
+winopts.winfixheight = false
 
 function NvimOpen()
 	local core = require("nvim-tree.core")
