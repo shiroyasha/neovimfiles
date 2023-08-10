@@ -9,7 +9,7 @@ vim.g.loaded_netrwPlugin = 1
 
 nvimtree.setup({
 	update_focused_file = {
-		enable = true,
+		enable = false,
 	},
 	actions = {
 		open_file = {
@@ -29,7 +29,6 @@ nvimtree.setup({
 		api.config.mappings.default_on_attach(bufnr)
 
 		vim.keymap.set("n", "l", api.node.open.replace_tree_buffer, opts("Edit Or Open"))
-		vim.keymap.set("n", "h", api.tree.change_root_to_parent, opts("Change Root To Parent"))
 		vim.keymap.set("n", "H", api.tree.collapse_all, opts("Collapse All"))
 	end,
 })
@@ -51,12 +50,24 @@ function NvimOpen()
 
 	if is_no_name_buffer then
 		core.init(cwd)
+
 		view.open_in_win({
 			hijack_current_buf = false,
 			resize = false,
 		})
+
 		require("nvim-tree.renderer").draw()
 	else
-		require("nvim-tree").open_replacing_current_buffer()
+		local bufname = vim.api.nvim_buf_get_name(current_buffer)
+
+		core.init(cwd)
+
+		view.open_in_win({
+			hijack_current_buf = false,
+			resize = false,
+		})
+
+		require("nvim-tree.renderer").draw()
+		require("nvim-tree.actions.finders.find-file").fn(bufname)
 	end
 end
