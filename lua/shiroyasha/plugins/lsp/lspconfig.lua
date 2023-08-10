@@ -48,12 +48,11 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "<leader>gW", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>")
 	keymap.set("n", "<leader>ah", "<cmd>lua vim.lsp.buf.hover()<CR>")
 	keymap.set("n", "<leader>af", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-	keymap.set("n", "<leader>ad", "<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>")
 	keymap.set("n", "<leader>ar", "<cmd>lua vim.lsp.buf.rename()<CR>")
 	keymap.set("n", "<leader>=", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 	keymap.set("n", "<leader>ai", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>")
 	keymap.set("n", "<leader>ao", "<cmd>lua vim.lsp.buf.outgoing_calls()<CR>")
-	keymap.set("n", "<leader>D", "<cmd>lua vim.diagnostics.open_float()<CR>")
+	keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
 
 	-- typescript specific keymaps (e.g. rename file and update imports)
 	if client.name == "tsserver" then
