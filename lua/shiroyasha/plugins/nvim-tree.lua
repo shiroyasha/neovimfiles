@@ -20,16 +20,17 @@ nvimtree.setup({
 	},
 
 	on_attach = function(bufnr)
-		local api = require("nvim-tree.api")
+    local api = require("nvim-tree.api")
 
-		local function opts(desc)
-			return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-		end
+    local function opts(desc)
+      return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    end
 
-		api.config.mappings.default_on_attach(bufnr)
+    api.config.mappings.default_on_attach(bufnr)
 
-		vim.keymap.set("n", "l", api.node.open.replace_tree_buffer, opts("Edit Or Open"))
-		vim.keymap.set("n", "H", api.tree.collapse_all, opts("Collapse All"))
+    vim.keymap.set("n", "l",     api.node.open.replace_tree_buffer, opts("Edit Or Open"))
+    vim.keymap.set('n', '<CR>',  api.node.open.replace_tree_buffer, opts("Edit Or Open"))
+    vim.keymap.set("n", "H",     api.tree.collapse_all, opts("Collapse All"))
 	end,
 })
 
