@@ -56,7 +56,7 @@ Plug("sbdchd/neoformat")
 vim.cmd [[
 augroup fmt
   autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
+  autocmd BufWritePre *.tsx undojoin | Neoformat
 augroup END
 ]]
 
