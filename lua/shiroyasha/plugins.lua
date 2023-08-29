@@ -64,6 +64,6 @@ Plug("windwp/nvim-ts-autotag", { after = "nvim-treesitter" }) -- autoclose tags
 -- git integration
 Plug("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
-Plug("mrjones2014/nvim-ts-rainbow") -- unmaintained, but works for now
+-- Plug("mrjones2014/nvim-ts-rainbow") -- unmaintained, but works for now
 
 vim.call("plug#end")
