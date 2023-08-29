@@ -2,6 +2,7 @@ local Plug = vim.fn["plug#"]
 
 vim.call("plug#begin", "/home/dev/.config/nvim/plugged")
 
+-- Shared Lua functions for Neovim plugins
 Plug("nvim-lua/plenary.nvim")
 
 Plug("tpope/vim-commentary")
@@ -34,22 +35,10 @@ Plug("elixir-tools/elixir-tools.nvim")
 Plug("fatih/vim-go")
 Plug("mhinz/vim-mix-format")
 Plug("github/copilot.vim")
--- Plug("neovim/nvim-lspconfig")
-
--- managing & installing lsp servers, linters & formatters
--- Plug("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
--- Plug("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
 
 -- configuring lsp servers
 Plug("neovim/nvim-lspconfig") -- easily configure language servers
 Plug("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-
--- Plug("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
--- Plug("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
-
--- formatting & linting
--- Plug("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
--- Plug("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
 
 Plug("sbdchd/neoformat")
 
@@ -75,8 +64,6 @@ Plug("windwp/nvim-ts-autotag", { after = "nvim-treesitter" }) -- autoclose tags
 -- git integration
 Plug("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
--- Plug("ThePrimeagen/refactoring.nvim")
--- Plug("simrat39/symbols-outline.nvim")
--- Plug("mrjones2014/nvim-ts-rainbow")
+Plug("mrjones2014/nvim-ts-rainbow") -- unmaintained, but works for now
 
 vim.call("plug#end")
