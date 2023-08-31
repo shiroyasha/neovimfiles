@@ -1,8 +1,4 @@
--- import nvim-treesitter plugin safely
-local status, treesitter = pcall(require, "nvim-treesitter.configs")
-if not status then
-	return
-end
+local treesitter = require("nvim-treesitter.configs")
 
 -- configure treesitter
 treesitter.setup({
@@ -12,8 +8,13 @@ treesitter.setup({
 	},
 	-- enable indentation
 	indent = { enable = true },
+
 	-- enable autotagging (w/ nvim-ts-autotag plugin)
-	autotag = { enable = true },
+	autotag = { 
+    enable = true,
+    enable_close_on_slash = false
+  },
+
 	-- ensure these language parsers are installed
 	ensure_installed = {
 		"json",
