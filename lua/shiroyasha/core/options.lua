@@ -36,3 +36,6 @@ opt.splitbelow = true
 
 -- word selection
 opt.iskeyword:append("-")
+
+-- disable log messages, they accumulate quickly and are not useful for me
+vim.lsp.set_log_level("off")
