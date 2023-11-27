@@ -37,3 +37,14 @@ mix compile && mix elixir_ls.release -o release
 
 mix local.rebar --force
 ```
+
+# Install NeoVim from source
+
+```
+cd /tmp
+wget https://github.com/neovim/neovim/archive/refs/tags/v0.9.4.tar.gz -O nvim.tar.gz
+tar -xzvf nvim.tar.gz
+cd neovim-0.9.4
+make CMAKE_BUILD_TYPE=Release
+sudo make install
+```
