@@ -39,6 +39,7 @@ Plug("github/copilot.vim")
 -- configuring lsp servers
 Plug("neovim/nvim-lspconfig") -- easily configure language servers
 Plug("hrsh7th/cmp-nvim-lsp") -- for autocompletion
+Plug("pmizio/typescript-tools.nvim") -- custom typescript lsp (faster than tsserver)
 
 Plug("sbdchd/neoformat")
 

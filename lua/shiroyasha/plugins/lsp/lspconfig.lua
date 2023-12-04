@@ -28,21 +28,11 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>ao", "<cmd>lua vim.lsp.buf.outgoing_calls()<CR>", opts)
 	vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 
-	-- typescript specific keymaps (e.g. rename file and update imports)
-	if client.name == "tsserver" then
-		vim.keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>", opts) -- rename file and update imports
-		vim.keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>", opts) -- organize imports (not in youtube nvim video)
-		vim.keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>", opts) -- remove unused variables (not in youtube nvim video)
-	end
+  vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, opts)
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
-
-lspconfig.tsserver.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
 
 lspconfig.elixirls.setup({
   cmd = { "/home/dev/.elixir-ls/release/language_server.sh" },

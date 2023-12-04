@@ -18,6 +18,7 @@ km.set("n", "<leader>T", ":MakeTestFile<CR>") -- run test on current file
 km.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
 
 km.set("n", "<leader>e", NvimOpen, { desc = "nvim-tree: Open" })
+km.set("n", "<leader>r", ":lua command_picker()<CR>", { desc = "Custom Commands" })
 
 -- Case Change
 
