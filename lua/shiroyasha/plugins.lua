@@ -13,7 +13,7 @@ Plug("bluz71/vim-nightfly-colors", { as = "nightfly" })
 Plug("christoomey/vim-tmux-navigator")
 Plug("szw/vim-maximizer")
 
-Plug("nvim-tree/nvim-tree.lua")
+Plug("nvim-tree/nvim-tree.lua", { commit = "b8c3a23e76f861d5f0ff3f6714b9b56388984d0b" }) -- there is a bug in the latest version, see: https://github.com/nvim-tree/nvim-tree.lua/pull/2627/files
 Plug("nvim-tree/nvim-web-devicons")
 Plug("nvim-lualine/lualine.nvim")
 
@@ -32,6 +32,7 @@ Plug("rafamadriz/friendly-snippets") -- Plugful snippets
 Plug("shiroyasha/make-test")
 
 Plug("elixir-tools/elixir-tools.nvim")
+
 -- Plug("fatih/vim-go")
 Plug("mhinz/vim-mix-format")
 Plug("github/copilot.vim")
