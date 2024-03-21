@@ -1,3 +1,6 @@
+local lsp_status = require('lsp-status')
+lsp_status.register_progress()
+
 local cmp = require('cmp')
 local protocol = require('vim.lsp.protocol')
 
@@ -6,7 +9,6 @@ cmp.setup {
     { name = 'nvim_lsp' }
   }
 }
-
 
 local on_attach = function(client, bufnr)
 	local opts = { noremap = true, silent = true, buffer = bufnr }

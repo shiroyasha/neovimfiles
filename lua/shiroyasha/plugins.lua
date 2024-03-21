@@ -44,6 +44,8 @@ Plug("pmizio/typescript-tools.nvim") -- custom typescript lsp (faster than tsser
 
 Plug("sbdchd/neoformat")
 
+Plug("nvim-lua/lsp-status.nvim")
+
 vim.cmd [[
 augroup fmt
   autocmd!
