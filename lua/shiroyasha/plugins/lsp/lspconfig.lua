@@ -29,6 +29,8 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>ai", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>", opts)
 	vim.keymap.set("n", "<leader>ao", "<cmd>lua vim.lsp.buf.outgoing_calls()<CR>", opts)
 	vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+	vim.keymap.set("n", "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+	vim.keymap.set("n", "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 
   vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, opts)
 end
