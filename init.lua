@@ -19,4 +19,5 @@ require("shiroyasha.plugins.treesitter")
 require("shiroyasha.plugins.gitsigns")
 
 require("shiroyasha.plugins.commandmenu")
+
 require("shiroyasha.core.keymaps")
