@@ -18,3 +18,17 @@ km.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
 
 km.set("n", "<leader>e", NvimOpen, { desc = "nvim-tree: Open" })
 km.set("n", "<leader>r", ":lua command_picker()<CR>", { desc = "Custom Commands" })
+
+km.set("n", "<leader>q", ":q<CR>") -- quit
+km.set("n", "<leader>Q", ":qa<CR>") -- quit all
+
+km.set("n", "<leader>1", "1gt") -- go to tab 1
+km.set("n", "<leader>2", "2gt") -- go to tab 2
+km.set("n", "<leader>3", "3gt") -- go to tab 3
+km.set("n", "<leader>4", "4gt") -- go to tab 4
+km.set("n", "<leader>5", "5gt") -- go to tab 5
+km.set("n", "<leader>6", "6gt") -- go to tab 6
+km.set("n", "<leader>7", "7gt") -- go to tab 7
+km.set("n", "<leader>8", "8gt") -- go to tab 8
+km.set("n", "<leader>9", "9gt") -- go to tab 9
+km.set("n", "<leader>0", ":tablast<CR>") -- go to last tab
