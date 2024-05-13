@@ -41,10 +41,12 @@ Plug("github/copilot.vim")
 Plug("neovim/nvim-lspconfig") -- easily configure language servers
 Plug("hrsh7th/cmp-nvim-lsp") -- for autocompletion
 Plug("pmizio/typescript-tools.nvim") -- custom typescript lsp (faster than tsserver)
+Plug("antosha417/nvim-lsp-file-operations") -- communicate with LSP for file operations
 
 Plug("sbdchd/neoformat")
 
 Plug("nvim-lua/lsp-status.nvim")
+
 
 vim.cmd [[
 augroup fmt

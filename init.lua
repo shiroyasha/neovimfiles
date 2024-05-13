@@ -13,6 +13,7 @@ require("shiroyasha.plugins.elixir-tools")
 
 require("shiroyasha.plugins.lsp.lspconfig")
 require("shiroyasha.plugins.lsp.typescript")
+require("shiroyasha.plugins.lsp.file-operations")
 
 require("shiroyasha.plugins.autopairs")
 require("shiroyasha.plugins.treesitter")
