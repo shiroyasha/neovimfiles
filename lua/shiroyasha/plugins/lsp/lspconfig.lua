@@ -38,11 +38,6 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 
--- lspconfig.elixirls.setup({
---   cmd = { "/home/dev/.elixir-ls/release/language_server.sh" },
---   on_attach = on_attach
--- })
-
 lspconfig.html.setup({
 	capabilities = capabilities,
 	on_attach = on_attach
@@ -53,13 +48,24 @@ lspconfig.cssls.setup({
 	on_attach = on_attach
 })
 
-lspconfig.tailwindcss.setup({
-	capabilities = capabilities,
-	on_attach = on_attach
-})
+-- lspconfig.tailwindcss.setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach
+-- })
 
 lspconfig.emmet_language_server.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 })
+
+local elixir = require("elixir")
+local elixirls = require("elixir.elixirls")
+
+elixir.setup {
+  nextls = {
+    enable = true,
+    port = 12000,
+    on_attach = on_attach
+  }
+}
