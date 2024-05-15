@@ -32,3 +32,6 @@ km.set("n", "<leader>7", "7gt") -- go to tab 7
 km.set("n", "<leader>8", "8gt") -- go to tab 8
 km.set("n", "<leader>9", "9gt") -- go to tab 9
 km.set("n", "<leader>0", ":tablast<CR>") -- go to last tab
+
+km.set("n", "[q", ":cprev<CR>") -- go to previous quickfix item
+km.set("n", "]q", ":cnext<CR>") -- go to next quickfix item
