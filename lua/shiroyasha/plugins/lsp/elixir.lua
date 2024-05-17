@@ -1,5 +1,5 @@
 local elixir = require("elixir")
-local elixirls = require("elixir.elixirls")
+-- local elixirls = require("elixir.elixirls")
 
 elixir.setup {
   nextls = {
