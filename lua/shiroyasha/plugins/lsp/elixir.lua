@@ -7,6 +7,7 @@ elixir.setup {
 
     on_attach = function(client, bufnr)
       vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+      vim.keymap.set("n", "<leader>dd", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
     end,
   },
   -- elixirls = {

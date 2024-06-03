@@ -8,6 +8,9 @@ vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
 nvimtree.setup({
+  filters = {
+    dotfiles = true,
+  },
 	update_focused_file = {
 		enable = false,
 	},

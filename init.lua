@@ -2,6 +2,7 @@ require("shiroyasha.plugins")
 
 require("shiroyasha.core.options")
 require("shiroyasha.core.colorscheme")
+require("shiroyasha.core.misc")
 
 require("shiroyasha.plugins.lualine")
 require("shiroyasha.plugins.nvim-tree")
