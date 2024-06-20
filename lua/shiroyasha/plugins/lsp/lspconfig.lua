@@ -65,12 +65,5 @@ elixir.setup {
   nextls = {
     enable = true,
     on_attach = on_attach,
-  },
-  elixirls = {
-    enable = true,
-    settings = elixirls.settings {
-      dialyzerEnabled = false,
-      enableTestLenses = false,
-    },
   }
 }
