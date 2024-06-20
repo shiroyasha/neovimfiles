@@ -48,13 +48,29 @@ lspconfig.cssls.setup({
 	on_attach = on_attach
 })
 
--- lspconfig.tailwindcss.setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach
--- })
+lspconfig.tailwindcss.setup({
+	capabilities = capabilities,
+	on_attach = on_attach
+})
 
 lspconfig.emmet_language_server.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 })
+
+local elixir = require("elixir")
+
+elixir.setup {
+  nextls = {
+    enable = true,
+    on_attach = on_attach,
+  },
+  elixirls = {
+    enable = true,
+    settings = elixirls.settings {
+      dialyzerEnabled = false,
+      enableTestLenses = false,
+    },
+  }
+}

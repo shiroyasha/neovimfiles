@@ -11,7 +11,6 @@ require("shiroyasha.plugins.telescope")
 require("shiroyasha.plugins.nvim-cmp")
 require("shiroyasha.plugins.treesitter")
 
-require("shiroyasha.plugins.lsp.elixir")
 require("shiroyasha.plugins.lsp.lspconfig")
 require("shiroyasha.plugins.lsp.typescript")
 require("shiroyasha.plugins.lsp.file-operations")
