@@ -50,7 +50,8 @@ lspconfig.cssls.setup({
 
 lspconfig.tailwindcss.setup({
 	capabilities = capabilities,
-	on_attach = on_attach
+	on_attach = on_attach,
+  filetypes = { "typescriptreact" }
 })
 
 lspconfig.emmet_language_server.setup({
