@@ -22,3 +22,20 @@ require("shiroyasha.plugins.gitsigns")
 require("shiroyasha.plugins.commandmenu")
 
 require("shiroyasha.core.keymaps")
+
+--
+-- experimental
+--
+
+vim.api.nvim_create_user_command('LoadPathsFromTxt', function()
+  local files = vim.fn.readfile('/tmp/paths.txt')
+  local quickfix_list = {}
+
+  for _, file in ipairs(files) do
+    local parts = vim.split(file, ':')
+    table.insert(quickfix_list, { filename = parts[1], lnum = tonumber(parts[2]), text = '' })
+  end
+
+  vim.fn.setqflist(quickfix_list)
+  vim.cmd('copen')
+end, {})
