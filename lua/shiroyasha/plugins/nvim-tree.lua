@@ -9,7 +9,8 @@ vim.g.loaded_netrwPlugin = 1
 
 nvimtree.setup({
   filters = {
-    dotfiles = true,
+    dotfiles = false,
+    git_ignored = false
   },
 	update_focused_file = {
 		enable = false,
