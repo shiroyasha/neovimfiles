@@ -31,7 +31,7 @@ Plug("rafamadriz/friendly-snippets") -- Plugful snippets
 
 Plug("shiroyasha/make-test")
 
-Plug("elixir-tools/elixir-tools.nvim")
+-- Plug("elixir-tools/elixir-tools.nvim")
 
 -- Plug("fatih/vim-go")
 Plug("mhinz/vim-mix-format")

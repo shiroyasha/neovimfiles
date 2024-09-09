@@ -59,12 +59,3 @@ lspconfig.emmet_language_server.setup({
 	on_attach = on_attach,
 	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 })
-
-local elixir = require("elixir")
-
-elixir.setup {
-  nextls = {
-    enable = true,
-    on_attach = on_attach,
-  }
-}
