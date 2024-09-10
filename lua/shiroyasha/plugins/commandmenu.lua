@@ -3,6 +3,7 @@ local action_state = require('telescope.actions.state')
 local pickers = require('telescope.pickers')
 local finders = require('telescope.finders')
 local conf = require('telescope.config').values
+local telescopeBuiltin = require('telescope.builtin')
 
 local my_custom_commands = {
   { description = "TS only: Organize Imports", command = function() vim.cmd("TSToolsOrganizeImports") end },
@@ -10,6 +11,9 @@ local my_custom_commands = {
   { description = "TS only: Add Missing Imports", command = function() vim.cmd("TSToolsAddMissingImports") end },
   { description = "Find references (gr)", command = function() vim.lsp.buf.references() end },
   { description = "Type Definition (gt)", command = function() vim.lsp.buf.type_definition() end },
+  { description = "List all diagnostics", command = function() telescopeBuiltin.diagnostics() end },
+  { description = "Buffers", command = function() telescopeBuiltin.buffers() end },
+  { description = "Git History of this file", command = function() telescopeBuiltin.git_bcommits() end }
 }
 
 function command_picker()

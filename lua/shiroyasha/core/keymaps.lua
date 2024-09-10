@@ -35,3 +35,29 @@ km.set("n", "<leader>0", ":tablast<CR>") -- go to last tab
 
 km.set("n", "[q", ":cprev<CR>") -- go to previous quickfix item
 km.set("n", "]q", ":cnext<CR>") -- go to next quickfix item
+
+--
+-- LSP mappings
+--
+
+local opts = { noremap = true, silent = true, buffer = bufnr }
+
+km.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+km.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+km.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+km.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+km.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+km.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+km.set("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+km.set("n", "<leader>gw", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", opts)
+km.set("n", "<leader>gW", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", opts)
+km.set("n", "<leader>ah", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+km.set("n", "<leader>af", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+km.set("n", "<leader>ar", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+km.set("n", "<leader>=", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+km.set("n", "<leader>ai", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>", opts)
+km.set("n", "<leader>ao", "<cmd>lua vim.lsp.buf.outgoing_calls()<CR>", opts)
+km.set("n", "<leader>dd", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+km.set("n", "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+km.set("n", "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+km.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, opts)
