@@ -40,11 +40,17 @@ mix local.rebar --force
 
 # Install NeoVim from source
 
+Prerequisites:
+
+```
+sudo apt-get install ninja-build gettext cmake unzip curl build-essential
+```
+
 ```
 cd /tmp
-wget https://github.com/neovim/neovim/archive/refs/tags/v0.9.4.tar.gz -O nvim.tar.gz
+wget https://github.com/neovim/neovim/archive/refs/tags/v0.10.1.tar.gz -O nvim.tar.gz
 tar -xzvf nvim.tar.gz
-cd neovim-0.9.4
+cd neovim-0.10.1
 make CMAKE_BUILD_TYPE=Release
 sudo make install
 ```
