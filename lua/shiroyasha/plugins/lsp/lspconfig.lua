@@ -5,6 +5,8 @@ vim.lsp.set_log_level("debug")
 
 local cmp = require('cmp')
 local protocol = require('vim.lsp.protocol')
+local configs = require("lspconfig.configs")
+local util = require('lspconfig.util')
 
 cmp.setup {
   sources = {
@@ -33,14 +35,12 @@ lspconfig.emmet_language_server.setup({
 	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 })
 
-lspconfig.elixirls.setup {
-  cmd = { "/home/dev/code/elixir-ls/language_server.sh" },
-  capabilities = capabilities,
-  flags = {
-    debounce_text_changes = 150,
-  },
-  elixirLS = {
-    dialyzerEnabled = false,
-    fetchDeps = false,
-  };
+lspconfig.lexical.setup {
+  cmd = { "/home/dev/code/lexical-lsp/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
+  root_dir = function(fname)
+    return util.root_pattern("mix.exs", ".git")(fname) or vim.loop.cwd()
+  end,
+  filetypes = { "elixir", "eelixir", "heex" },
+  -- optional settings
+  settings = {}
 }
