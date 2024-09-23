@@ -31,9 +31,6 @@ Plug("rafamadriz/friendly-snippets") -- Plugful snippets
 
 Plug("shiroyasha/make-test")
 
--- Plug("elixir-tools/elixir-tools.nvim")
-
--- Plug("fatih/vim-go")
 Plug("mhinz/vim-mix-format")
 Plug("github/copilot.vim")
 
@@ -47,11 +44,10 @@ Plug("sbdchd/neoformat")
 
 Plug("nvim-lua/lsp-status.nvim")
 
-
 vim.cmd [[
 augroup fmt
   autocmd!
-  autocmd BufWritePre *.tsx undojoin | Neoformat
+  autocmd BufWritePre *.tsx undojoin | Neoformat prettier
 augroup END
 ]]
 
