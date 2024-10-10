@@ -21,18 +21,9 @@ lspconfig.html.setup({
 	capabilities = capabilities,
 })
 
-lspconfig.cssls.setup({
-	capabilities = capabilities,
-})
-
 lspconfig.tailwindcss.setup({
 	capabilities = capabilities,
   filetypes = { "typescriptreact" }
-})
-
-lspconfig.emmet_language_server.setup({
-	capabilities = capabilities,
-	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 })
 
 lspconfig.lexical.setup {
