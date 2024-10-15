@@ -35,3 +35,5 @@ lspconfig.lexical.setup {
   -- optional settings
   settings = {}
 }
+
+lspconfig.gleam.setup({})
