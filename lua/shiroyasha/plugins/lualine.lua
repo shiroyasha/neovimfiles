@@ -1,3 +1,8 @@
+local status,  lualine = pcall(require, "lualine")
+if not status then
+  return
+end
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -18,16 +23,21 @@ require('lualine').setup {
     }
   },
   sections = {
-    lualine_a = {'mode'},
+    lualine_a = {
+      { 
+        'mode', 
+        fmt = function(str) return str:sub(1,1) end
+      }
+    },
     lualine_b = {'diagnostics'},
     lualine_c = {
       {
         'filename',
         path = 1,
-        shorting_target = 40
+        shorting_target = 0
       },
     },
-    lualine_x = {'diff', 'branch'},
+    lualine_x = {},
     lualine_y = {'progress', 'location'},
     lualine_z = {}
   },
@@ -38,7 +48,7 @@ require('lualine').setup {
       {
         'filename',
         path = 1,
-        shorting_target = 40
+        shorting_target = 0
       },
     },
     lualine_x = {},

@@ -6,7 +6,6 @@ require("shiroyasha.core.misc")
 
 require("shiroyasha.plugins.lualine")
 require("shiroyasha.plugins.nvim-tree")
-require("shiroyasha.plugins.nvim-lualine")
 require("shiroyasha.plugins.telescope")
 require("shiroyasha.plugins.nvim-cmp")
 require("shiroyasha.plugins.treesitter")
