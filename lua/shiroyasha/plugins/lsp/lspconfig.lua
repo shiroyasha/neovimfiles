@@ -1,8 +1,6 @@
 local lsp_status = require('lsp-status')
 lsp_status.register_progress()
 
-vim.lsp.set_log_level("debug")
-
 local cmp = require('cmp')
 local protocol = require('vim.lsp.protocol')
 local configs = require("lspconfig.configs")
