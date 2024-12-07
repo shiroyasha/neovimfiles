@@ -6,8 +6,9 @@ treesitter.setup({
 	highlight = {
 		enable = true,
 	},
+
 	-- enable indentation
-	indent = { enable = true },
+	-- indent = { enable = true }, -- indent messes up ruby
 
 	-- enable autotagging (w/ nvim-ts-autotag plugin)
 	autotag = { 
@@ -34,6 +35,7 @@ treesitter.setup({
 		"dockerfile",
 		"gitignore",
 		"elixir",
+    "ruby",
 	},
 	-- auto install above language parsers
 	auto_install = true,
