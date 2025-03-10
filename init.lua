@@ -26,6 +26,42 @@ require("shiroyasha.core.keymaps")
 -- experimental
 --
 
+require("mini.diff").setup({})
+
+require("codecompanion").setup({
+  strategies = {
+    chat = {
+      adapter = "anthropic",
+    },
+  },
+  adapters = {
+    anthropic = function()
+      return require("codecompanion.adapters").extend("anthropic", {
+        env = {
+          api_key = "cmd:cat ~/.claude-api-key | tr -d '\n'",
+        },
+      })
+    end,
+  },
+  display = {
+    diff = {
+      enabled = true,
+      close_chat_at = 240, -- Close an open chat buffer if the total columns of your display are less than...
+      layout = "vertical", -- vertical|horizontal split for default provider
+      opts = { "internal", "filler", "closeoff", "algorithm:patience", "followwrap", "linematch:120" },
+      provider = "mini_diff",
+    },
+  },
+  opts = {
+    -- Set debug logging
+    log_level = "DEBUG",
+  },
+})
+
+--
+-- experimental
+--
+
 vim.api.nvim_create_user_command('LoadPathsFromTxt', function()
   local files = vim.fn.readfile('/tmp/paths.txt')
   local quickfix_list = {}

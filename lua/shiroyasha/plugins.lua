@@ -32,7 +32,10 @@ Plug("rafamadriz/friendly-snippets") -- Plugful snippets
 Plug("shiroyasha/make-test")
 
 Plug("mhinz/vim-mix-format")
+
+-- Copilot
 Plug("github/copilot.vim")
+-- Plug("CopilotC-Nvim/CopilotChat.nvim")
 
 -- configuring lsp servers
 Plug("neovim/nvim-lspconfig") -- easily configure language servers
@@ -41,8 +44,10 @@ Plug("pmizio/typescript-tools.nvim") -- custom typescript lsp (faster than tsser
 Plug("antosha417/nvim-lsp-file-operations") -- communicate with LSP for file operations
 
 Plug("sbdchd/neoformat")
-
 Plug("nvim-lua/lsp-status.nvim")
+
+Plug 'olimorris/codecompanion.nvim'
+Plug 'echasnovski/mini.diff'
 
 vim.cmd [[
 augroup fmt
