@@ -46,8 +46,9 @@ Plug("antosha417/nvim-lsp-file-operations") -- communicate with LSP for file ope
 Plug("sbdchd/neoformat")
 Plug("nvim-lua/lsp-status.nvim")
 
-Plug 'olimorris/codecompanion.nvim'
-Plug 'echasnovski/mini.diff'
+Plug("olimorris/codecompanion.nvim")
+Plug("echasnovski/mini.diff")
+Plug("tpope/vim-fugitive")
 
 vim.cmd [[
 augroup fmt
