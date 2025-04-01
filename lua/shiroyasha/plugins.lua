@@ -1,6 +1,6 @@
 local Plug = vim.fn["plug#"]
 
-vim.call("plug#begin", "/home/dev/.config/nvim/plugged")
+vim.call("plug#begin", "~/.config/nvim/plugged")
 
 -- Shared Lua functions for Neovim plugins
 Plug("nvim-lua/plenary.nvim")
