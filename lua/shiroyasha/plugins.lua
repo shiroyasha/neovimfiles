@@ -34,7 +34,7 @@ Plug("shiroyasha/make-test")
 Plug("mhinz/vim-mix-format")
 
 -- Copilot
-Plug("github/copilot.vim")
+-- Plug("github/copilot.vim")
 -- Plug("CopilotC-Nvim/CopilotChat.nvim")
 
 -- configuring lsp servers
